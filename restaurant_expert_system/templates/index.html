@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Restaurant Recommendation Expert System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🍴 Restaurant Recommendation Expert System 🍴</h1>
+    <form action="/recommend" method="post">
+      <label>Taste Preference:</label>
+      <select name="taste">
+        <option value="spicy">Spicy</option>
+        <option value="sweet">Sweet</option>
+        <option value="salty">Salty</option>
+      </select>
+
+      <label>Diet Preference:</label>
+      <select name="diet">
+        <option value="veg">Vegetarian</option>
+        <option value="nonveg">Non-Vegetarian</option>
+      </select>
+
+      <label>Mood:</label>
+      <select name="mood">
+        <option value="normal">Normal</option>
+        <option value="happy">happy</option>
+        <option value="party">Party</option>
+      </select>
+
+      <button type="submit">Get Recommendation</button>
+    </form>
+
+    {% if result %}
+      <div class="result">
+        <h2>🍽️ Suggested Place:</h2>
+        <p>{{ result }}</p>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
